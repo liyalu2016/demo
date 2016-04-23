@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/big_card"/>
+    <include layout="@layout/big_card" />
 
+    <include layout="@layout/small_card" />
 
 </LinearLayout>
