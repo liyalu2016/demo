@@ -10,12 +10,12 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:padding="@dimen/app_card_padding">
 
         <ImageView
             android:id="@+id/app_icon"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="@dimen/app_icon_width"
+            android:layout_height="@dimen/app_icon_height"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginRight="20dp"
