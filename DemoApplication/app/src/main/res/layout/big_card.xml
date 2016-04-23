@@ -70,57 +70,37 @@
 
         <ImageButton
             android:id="@+id/star1"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/split_line"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/star_outline" />
+            style="@style/star" />
 
         <ImageButton
             android:id="@+id/star2"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:layout_below="@+id/split_line"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/star1"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/star_outline" />
+            style="@style/star" />
 
         <ImageButton
             android:id="@+id/star3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:layout_below="@+id/split_line"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/star2"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/star_outline" />
+            style="@style/star" />
 
         <ImageButton
             android:id="@+id/star4"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:layout_below="@+id/split_line"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/star3"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/star_outline" />
+            style="@style/star" />
 
         <ImageButton
             android:id="@+id/star5"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
             android:layout_below="@+id/split_line"
             android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/star4"
-            android:background="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/star_outline" />
+            style="@style/star" />
 
         <TextView
             android:layout_width="wrap_content"
