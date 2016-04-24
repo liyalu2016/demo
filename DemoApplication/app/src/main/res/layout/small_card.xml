@@ -32,6 +32,7 @@
             android:layout_marginBottom="8dp"
             android:layout_toLeftOf="@id/more"
             android:maxLines="2"
+            android:minLines="2"
             android:text="Proton-Mail-"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
