@@ -25,26 +25,26 @@ public class CardListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_card_list);
-        mRecyclerView = (RecyclerView)findViewById(R.id.list);
+        mRecyclerView = (RecyclerView) findViewById(R.id.list);
         mRecyclerView.setHasFixedSize(true);
 
         mLinearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
 
         final int MAX_LEN = 10;
-        BigCardData[] bigCardDataList = new BigCardData[MAX_LEN];
-        bigCardDataList[0] = new BigCardData("Meme Creator", "Gentoozero", R.drawable.icon_app_0, 4.0f);
-        bigCardDataList[1] = new BigCardData("BuzzFeed", "BuzzFeed", R.drawable.icon_app_1, 4.1f);
-        bigCardDataList[2] = new BigCardData("GATM Meme Generator", "IDDQD", R.drawable.icon_app_2, 4.2f);
-        bigCardDataList[3] = new BigCardData("BBC News", "BBC Worldwide (Ltd)", R.drawable.icon_app_3, 4.3f);
-        bigCardDataList[4] = new BigCardData("Google", "Google Inc.", R.drawable.icon_app_4, 4.4f);
-        bigCardDataList[5] = new BigCardData("Jetradar", "JetRadar", R.drawable.icon_app_5, 4.5f);
-        bigCardDataList[6] = new BigCardData("Doodle Like Magic", "Doodle Joy Studio", R.drawable.icon_app_6, 4.6f);
-        bigCardDataList[7] = new BigCardData("Duolingo", "Duolingo", R.drawable.icon_app_7, 4.7f);
-        bigCardDataList[8] = new BigCardData("BeautyPlus - Magical Camera", "Meitu (China) Limited", R.drawable.icon_app_8, 4.8f);
-        bigCardDataList[9] = new BigCardData("CandyCamera", "JP Brothers, Inc.", R.drawable.icon_app_9, 4.9f);
+        AppItem[] appItemList = new AppItem[MAX_LEN];
+        appItemList[0] = new AppItem(new BigCardData("Meme Creator", "Gentoozero", R.drawable.icon_app_0, 4.0f), "Want quick suggestions?", "Rate this item to get recommendations");
+        appItemList[1] = new AppItem(new BigCardData("BuzzFeed", "BuzzFeed", R.drawable.icon_app_1, 4.1f), "Commution Apps", "Recommended for you");
+        appItemList[2] = new AppItem(new BigCardData("GATM Meme Generator", "IDDQD", R.drawable.icon_app_2, 4.2f), "Photography Apps", "Recommended for you");
+        appItemList[3] = new AppItem(new BigCardData("BBC News", "BBC Worldwide (Ltd)", R.drawable.icon_app_3, 4.3f), "Want quick suggestions?", "Rate this item to get recommendations");
+        appItemList[4] = new AppItem(new BigCardData("Google", "Google Inc.", R.drawable.icon_app_4, 4.4f), "Commution Apps", "Recommended for you");
+        appItemList[5] = new AppItem(new BigCardData("Jetradar", "JetRadar", R.drawable.icon_app_5, 4.5f), "Photography Apps", "Recommended for you");
+        appItemList[6] = new AppItem(new BigCardData("Doodle Like Magic", "Doodle Joy Studio", R.drawable.icon_app_6, 4.6f), "Want quick suggestions?", "Rate this item to get recommendations");
+        appItemList[7] = new AppItem(new BigCardData("Duolingo", "Duolingo", R.drawable.icon_app_7, 4.7f), "Commution Apps", "Recommended for you");
+        appItemList[8] = new AppItem(new BigCardData("BeautyPlus - Magical Camera", "Meitu (China) Limited", R.drawable.icon_app_8, 4.8f), "Photography Apps", "Recommended for you");
+        appItemList[9] = new AppItem(new BigCardData("CandyCamera", "JP Brothers, Inc.", R.drawable.icon_app_9, 4.9f), "Want quick suggestions?", "Rate this item to get recommendations");
 
-        mAdapter = new AppCardAdapter(bigCardDataList);
+        mAdapter = new AppCardAdapter(appItemList);
         mRecyclerView.setAdapter(mAdapter);
     }
 
@@ -94,6 +94,34 @@ public class CardListActivity extends Activity {
         }
     }
 
+    public class AppItem {
+        private BigCardData mBigCardData;
+        private String mTitle;
+        private String mSubTitle;
+
+        public String getTitle() {
+            return mTitle;
+        }
+
+        public String getSubTitle() {
+            return mSubTitle;
+        }
+
+        public void setSubTitle(String subTitle) {
+            mSubTitle = subTitle;
+        }
+
+        public void setTitle(String title) {
+            mTitle = title;
+        }
+
+        public AppItem(CardListActivity.BigCardData bigCardData, String title, String subTitle) {
+            mBigCardData = bigCardData;
+            mTitle = title;
+            mSubTitle = subTitle;
+        }
+    }
+
     public class AppCardViewHolder extends RecyclerView.ViewHolder {
 
         public AppCardViewHolder(View itemView) {
@@ -102,16 +130,16 @@ public class CardListActivity extends Activity {
     }
 
     public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
-        private BigCardData[] mDataSet;
+        private AppItem[] mDataSet;
 
-        public AppCardAdapter(BigCardData[] dataSet) {
+        public AppCardAdapter(AppItem[] dataSet) {
             mDataSet = dataSet;
         }
 
         @Override
         public AppCardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.big_card, parent, false);
+                    .inflate(R.layout.app_item, parent, false);
 
             AppCardViewHolder vh = new AppCardViewHolder(v);
             return vh;
@@ -121,16 +149,22 @@ public class CardListActivity extends Activity {
         public void onBindViewHolder(AppCardViewHolder holder, int position) {
 
             ImageView imageView = (ImageView) holder.itemView.findViewById(R.id.app_icon);
-            imageView.setImageResource(mDataSet[position].getImageId());
+            imageView.setImageResource(mDataSet[position].mBigCardData.getImageId());
 
             TextView nameView = (TextView) holder.itemView.findViewById(R.id.app_name);
-            nameView.setText(mDataSet[position].getAppName());
+            nameView.setText(mDataSet[position].mBigCardData.getAppName());
 
             TextView authorView = (TextView) holder.itemView.findViewById(R.id.app_author);
-            authorView.setText(mDataSet[position].getAppAuthor());
+            authorView.setText(mDataSet[position].mBigCardData.getAppAuthor());
 
 //            TextView scoreView = (TextView) holder.itemView.findViewById(R.id.score);
 //            scoreView.setText(String.valueOf(mDataSet[position].getScore()));
+
+            TextView titleView = (TextView) holder.itemView.findViewById(R.id.title);
+            titleView.setText(mDataSet[position].getTitle());
+
+            TextView subTitleView = (TextView) holder.itemView.findViewById(R.id.sub_title);
+            subTitleView.setText(mDataSet[position].getSubTitle());
         }
 
         @Override
