@@ -87,7 +87,7 @@ public class CardListActivity extends Activity {
         public void onBindViewHolder(AppCardViewHolder holder, int position) {
 
             ImageView imageView = (ImageView) holder.itemView.findViewById(R.id.app_icon);
-            imageView.setImageResource(mDataSet[position].getAppList().get(0).getImageId());
+            imageView.setImageResource(mDataSet[position].getAppList().get(0).getIconResId());
 
             TextView nameView = (TextView) holder.itemView.findViewById(R.id.app_name);
             nameView.setText(mDataSet[position].getAppList().get(0).getAppName());

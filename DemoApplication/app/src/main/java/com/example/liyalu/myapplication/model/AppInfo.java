@@ -6,13 +6,13 @@ package com.example.liyalu.myapplication.model;
 public class AppInfo {
     private String mAppName;
     private String mAppAuthor;
-    private int mImageId;
+    private int mIconResId;
     private float mScore;
 
-    public AppInfo(String appName, String appAuthor, int imageId, float score) {
+    public AppInfo(String appName, String appAuthor, int iconResId, float score) {
         this.mAppName = appName;
         this.mAppAuthor = appAuthor;
-        this.mImageId = imageId;
+        this.mIconResId = iconResId;
         this.mScore = score;
     }
 
@@ -24,27 +24,27 @@ public class AppInfo {
         return mAppAuthor;
     }
 
-    public int getImageId() {
-        return mImageId;
+    public int getIconResId() {
+        return mIconResId;
     }
 
     public float getScore() {
         return mScore;
     }
 
-    public void setAppName(String mAppName) {
-        this.mAppName = mAppName;
+    public void setAppName(String appName) {
+        this.mAppName = appName;
     }
 
-    public void setScore(float mScore) {
-        this.mScore = mScore;
+    public void setScore(float score) {
+        this.mScore = score;
     }
 
-    public void setAppAuthor(String mAppAuthor) {
-        this.mAppAuthor = mAppAuthor;
+    public void setAppAuthor(String appAuthor) {
+        this.mAppAuthor = appAuthor;
     }
 
-    public void setImageId(int mImageId) {
-        this.mImageId = mImageId;
+    public void setIconResId(int iconResId) {
+        this.mIconResId = iconResId;
     }
 }

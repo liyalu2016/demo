@@ -7,7 +7,7 @@ import java.util.List;
  * Created by liyalu on 16/4/24.
  */
 public class AppGroup {
-    private final List<AppInfo> mAppList = new LinkedList<>();
+    private List<AppInfo> mAppList = new LinkedList<>();
     private String mTitle;
     private String mSubTitle;
 

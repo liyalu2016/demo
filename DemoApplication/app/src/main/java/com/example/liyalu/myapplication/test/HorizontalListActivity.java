@@ -7,15 +7,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.liyalu.myapplication.R;
 import com.example.liyalu.myapplication.model.AppGroup;
 import com.example.liyalu.myapplication.model.AppInfo;
-
-import java.util.List;
 
 /**
  * Created by liyalu on 16/4/24.
@@ -62,7 +59,7 @@ public class HorizontalListActivity extends Activity {
             AppInfo info = mAppGroup.getAppList().get(position);
 
             ImageView imageView = (ImageView) holder.itemView.findViewById(R.id.app_icon);
-            imageView.setImageResource(info.getImageId());
+            imageView.setImageResource(info.getIconResId());
 
             TextView textView = (TextView) holder.itemView.findViewById(R.id.app_name);
             textView.setText(info.getAppName());
