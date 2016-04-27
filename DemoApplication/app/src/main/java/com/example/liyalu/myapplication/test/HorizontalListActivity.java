@@ -38,6 +38,12 @@ public class HorizontalListActivity extends Activity {
 
         RecyclerView.Adapter adapter = new RecyclerViewAdapter(appGroup);
         recyclerView.setAdapter(adapter);
+
+        TextView titleView = (TextView) findViewById(R.id.title);
+        titleView.setText(appGroup.getTitle());
+
+        TextView subTitleView = (TextView) findViewById(R.id.sub_title);
+        subTitleView.setText(appGroup.getSubTitle());
     }
 
     public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
@@ -49,7 +55,7 @@ public class HorizontalListActivity extends Activity {
 
         @Override
         public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.small_card, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.app_horizontal_item, parent, false);
             RecyclerViewHolder vh = new RecyclerViewHolder(v);
             return vh;
         }
