@@ -27,9 +27,8 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
 
     @Override
     public AppCardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v;
         if (viewType == VIEW_TYPE_APP_LIST) {
-            v = LayoutInflater.from(parent.getContext())
+            View v = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.activity_horizontal_list, parent, false);
             RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.horizontal_list);
             recyclerView.setHasFixedSize(true);
@@ -37,24 +36,26 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
             LinearLayoutManager layoutManager = new LinearLayoutManager(parent.getContext(),
                     LinearLayoutManager.HORIZONTAL, false);
             recyclerView.setLayoutManager(layoutManager);
+
             RecyclerView.Adapter adapter = new RecyclerViewAdapter();
             recyclerView.setAdapter(adapter);
+
+            AppCardViewHolder vh = new AppCardViewHolder(v);
+            vh.recyclerView = recyclerView;
+
+            return vh;
         } else {
-            v = LayoutInflater.from(parent.getContext())
+            View v = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.app_item, parent, false);
+
+            return new AppCardViewHolder(v);
         }
-
-        AppCardViewHolder vh = new AppCardViewHolder(v);
-        return vh;
     }
-
-
 
     @Override
     public void onBindViewHolder(AppCardViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_TYPE_APP_LIST) {
-            RecyclerView recyclerView = (RecyclerView) holder.itemView.findViewById(R.id.horizontal_list);
-            RecyclerViewAdapter adapter = (RecyclerViewAdapter) recyclerView.getAdapter();
+            RecyclerViewAdapter adapter = (RecyclerViewAdapter) holder.recyclerView.getAdapter();
             adapter.mAppGroup = mDataSet[position];
             adapter.notifyDataSetChanged();
 
@@ -73,9 +74,6 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
 
             TextView authorView = (TextView) holder.itemView.findViewById(R.id.app_author);
             authorView.setText(mDataSet[position].getAppList().get(0).getAppAuthor());
-
-//            TextView scoreView = (TextView) holder.itemView.findViewById(R.id.score);
-//            scoreView.setText(String.valueOf(mDataSet[position].getAppList().get(0).getScore()));
 
             TextView titleView = (TextView) holder.itemView.findViewById(R.id.title);
             titleView.setText(mDataSet[position].getTitle());

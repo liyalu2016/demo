@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.CardListActivity$MainActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -17,7 +17,7 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".test.CardActivity">
+        <activity android:name=".activity.CardActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 
@@ -25,7 +25,7 @@
             <!--</intent-filter>-->
         </activity>
 
-        <activity android:name=".test.CardListActivity">
+        <activity android:name=".activity.CardListActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,7 +33,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".test.HorizontalListActivity">
+        <activity android:name=".activity.HorizontalListActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
 

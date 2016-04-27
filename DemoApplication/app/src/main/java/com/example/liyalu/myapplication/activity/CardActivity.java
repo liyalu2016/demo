@@ -1,4 +1,4 @@
-package com.example.liyalu.myapplication.test;
+package com.example.liyalu.myapplication.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

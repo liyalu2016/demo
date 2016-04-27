@@ -1,4 +1,4 @@
-package com.example.liyalu.myapplication.test;
+package com.example.liyalu.myapplication.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,12 +20,21 @@ public class HorizontalListActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_horizontal_list);
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.horizontal_list);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
 
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter();
+        recyclerView.setAdapter(adapter);
+        adapter.mAppGroup = generateTestData();
+
+        updateHeader(adapter.mAppGroup);
+    }
+
+    private static AppGroup generateTestData() {
         AppGroup appGroup = new AppGroup("Want quick suggestions?", "Rate this item to get recommendations");
         appGroup.getAppList().add(new AppInfo("Meme Creator", "Gentoozero", R.drawable.icon_app_0, 4.0f));
         appGroup.getAppList().add(new AppInfo("BuzzFeed", "BuzzFeed", R.drawable.icon_app_1, 4.1f));
@@ -34,10 +43,10 @@ public class HorizontalListActivity extends Activity {
         appGroup.getAppList().add(new AppInfo("Google", "Google Inc.", R.drawable.icon_app_4, 4.4f));
         appGroup.getAppList().add(new AppInfo("Jetradar", "JetRadar", R.drawable.icon_app_5, 4.5f));
 
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter();
-        recyclerView.setAdapter(adapter);
-        adapter.mAppGroup = appGroup;
+        return appGroup;
+    }
 
+    private void updateHeader(AppGroup appGroup) {
         TextView titleView = (TextView) findViewById(R.id.title);
         titleView.setText(appGroup.getTitle());
 
