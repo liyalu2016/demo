@@ -25,8 +25,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     private View.OnClickListener mOnClickCardListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            Integer position = (Integer) view.getTag();
+            AppInfo appInfo = mAppGroup.getAppList().get(position);
+
             Context context = view.getContext();
             Intent intent = new Intent(context, DetailsPageActivity.class);
+            intent.putExtra(DetailsPageActivity.EXTRA_APP_INFO, appInfo);
             context.startActivity(intent);
         }
     };
@@ -44,6 +48,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+        holder.itemView.setTag(position);
+
         AppInfo info = mAppGroup.getAppList().get(position);
 
         ImageView imageView = (ImageView) holder.itemView.findViewById(R.id.app_icon);
