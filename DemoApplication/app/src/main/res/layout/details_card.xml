@@ -29,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_toLeftOf="@+id/more"
+            android:layout_toLeftOf="@+id/add_to_wishlist"
             android:layout_toRightOf="@+id/app_icon"
             android:singleLine="true"
             android:text="Monster Castle"
@@ -43,7 +43,6 @@
             android:layout_below="@+id/app_name"
             android:layout_toRightOf="@+id/app_icon"
             android:text="Sixjoy Hong Kong Limited"
-            android:maxEms="8"
             android:singleLine="true"
             android:textSize="14sp" />
 
@@ -71,7 +70,7 @@
             android:src="@drawable/icon_score" />
 
         <ImageButton
-            android:id="@+id/add"
+            android:id="@+id/add_to_wishlist"
             android:layout_width="25dp"
             android:layout_height="30dp"
             android:layout_alignBottom="@+id/app_name"
@@ -86,28 +85,36 @@
         <Button
             android:id="@+id/install"
             android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/star1"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/app_icon"
+            android:paddingTop="0dp"
             android:background="@android:color/holo_green_dark"
             android:gravity="center"
-            android:paddingLeft="15dp"
-            android:paddingRight="10dp"
             android:text="INSTALL"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/tips"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+        <!--<TextView-->
+            <!--android:id="@+id/tips"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_below="@+id/install"-->
+            <!--android:layout_marginTop="3dp"-->
+            <!--android:singleLine="true"-->
+            <!--android:text="In-app purchases"-->
+            <!--android:textSize="14sp" />-->
+
+        <View
+            android:id="@+id/split_line"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentLeft="true"
             android:layout_below="@+id/install"
-            android:layout_marginTop="3dp"
-            android:singleLine="true"
-            android:text="In-app purchases"
-            android:textSize="14sp" />
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/lighter_gray" />
 
     </RelativeLayout>
 

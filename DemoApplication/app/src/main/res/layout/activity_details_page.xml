@@ -9,7 +9,7 @@
         android:layout_height="160dp"
         android:layout_alignParentTop="true"
         android:scaleType="fitXY"
-        android:src="@drawable/background"
+        android:src="@drawable/banner"
         />
 
     <include layout="@layout/details_card" />
