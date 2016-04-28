@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="button_text">SKIP</string>>
+    <string name="button_text">SKIP</string>
+    <string name="transition_name_icon">transition:ICON</string>
 </resources>

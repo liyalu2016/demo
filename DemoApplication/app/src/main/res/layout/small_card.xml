@@ -16,6 +16,7 @@
             android:id="@+id/app_icon"
             android:layout_width="@dimen/app_icon_width"
             android:layout_height="@dimen/app_icon_height"
+            android:transitionName="@string/transition_name_icon"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="15dp"

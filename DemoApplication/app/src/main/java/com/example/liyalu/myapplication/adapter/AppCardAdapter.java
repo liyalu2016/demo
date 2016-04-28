@@ -1,8 +1,11 @@
 package com.example.liyalu.myapplication.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +39,12 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
             Intent intent = new Intent(context, DetailsPageActivity.class);
             intent.putExtra(DetailsPageActivity.EXTRA_APP_INFO, appInfo);
 
-            context.startActivity(intent);
+            ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
+                    (Activity) context,
+                    new Pair<View, String>(view.findViewById(R.id.app_icon),
+                            context.getString(R.string.transition_name_icon))
+            );
+            ActivityCompat.startActivity((Activity) context, intent, options.toBundle());
         }
     };
 
