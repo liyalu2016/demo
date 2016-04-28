@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    card_view:cardCornerRadius="2dp"
+    card_view:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/app_card_padding">
+
+        <ImageView
+            android:id="@+id/app_icon"
+            android:layout_width="@dimen/app_icon_width"
+            android:layout_height="@dimen/app_icon_height"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="20dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_app_10" />
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/more"
+            android:layout_toRightOf="@+id/app_icon"
+            android:singleLine="true"
+            android:text="Monster Castle"
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/app_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name"
+            android:layout_toRightOf="@+id/app_icon"
+            android:text="Sixjoy Hong Kong Limited"
+            android:maxEms="8"
+            android:singleLine="true"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignBottom="@+id/app_author"
+            android:layout_alignTop="@+id/app_author"
+            android:layout_below="@+id/app_name"
+            android:layout_marginLeft="3dp"
+            android:layout_toRightOf="@+id/app_author"
+            android:gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/app_score"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_below="@id/app_author"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/app_icon"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_score" />
+
+        <ImageButton
+            android:id="@+id/add"
+            android:layout_width="25dp"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/app_name"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/app_name"
+            android:layout_marginRight="3dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:scaleType="fitCenter"
+            android:src="@drawable/icon_add" />
+
+        <Button
+            android:id="@+id/install"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/star1"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/app_icon"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:paddingLeft="15dp"
+            android:paddingRight="10dp"
+            android:text="INSTALL"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/install"
+            android:layout_marginTop="3dp"
+            android:singleLine="true"
+            android:text="In-app purchases"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
