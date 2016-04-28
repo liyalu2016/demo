@@ -1,5 +1,7 @@
 package com.example.liyalu.myapplication.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.liyalu.myapplication.R;
+import com.example.liyalu.myapplication.activity.DetailsPageActivity;
 import com.example.liyalu.myapplication.model.AppGroup;
 import com.example.liyalu.myapplication.view_holder.AppCardViewHolder;
 
@@ -20,6 +23,15 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
     private static final int VIEW_TYPE_APP = 1;
 
     private AppGroup[] mDataSet;
+
+    private View.OnClickListener mOnClickCardListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Context context = view.getContext();
+            Intent intent = new Intent(context, DetailsPageActivity.class);
+            context.startActivity(intent);
+        }
+    };
 
     public AppCardAdapter(AppGroup[] dataSet) {
         mDataSet = dataSet;
@@ -47,6 +59,7 @@ public class AppCardAdapter extends RecyclerView.Adapter<AppCardViewHolder> {
         } else {
             View v = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.app_item, parent, false);
+            v.setOnClickListener(mOnClickCardListener);
 
             return new AppCardViewHolder(v);
         }
